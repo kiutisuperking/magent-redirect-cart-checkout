@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<config>
+	<modules>
+		<Bss_DisableCart>
+			<version>0.1.0</version>
+		</Bss_DisableCart>
+	</modules>
+	<global>
+		<helpers>
+			<disablecart>
+				<class>Bss_DisableCart_Helper</class>
+			</disablecart>
+		</helpers>
+	<models>
+		<disablecart>
+		<class>Bss_DisableCart_Model</class>
+		<resourceModel>disablecart_mysql4</resourceModel>
+		</disablecart>
+	</models>
+		<events>
+			<controller_action_predispatch_checkout_cart_index>
+				<observers>
+	                <customRedir>
+	                    <class>disablecart/observer</class>
+	                    <method>disableCart</method>
+	                </customRedir>
+	            </observers>
+			</controller_action_predispatch_checkout_cart_index>
+		</events>
+	</global>
+</config> 
